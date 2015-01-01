@@ -1,14 +1,14 @@
 {
   "name": "generator-react-templates",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "someuser/generator-react-templates",
+  "repository": "wix/generator-react-templates",
   "author": {
-    "name": "",
+    "name": "Ido",
     "email": "",
-    "url": "https://github.com/someuser"
+    "url": "https://github.com/wix"
   },
   "engines": {
     "node": ">=0.10.0"
