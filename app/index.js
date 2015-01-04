@@ -68,6 +68,7 @@ module.exports = yeoman.generators.Base.extend({
             );
             this._fsCopy('eslintrc', '.eslintrc');
             this._fsCopy('gitignore', '.gitignore');
+            this._fsCopy('Gruntfile.js', 'Gruntfile.js');
             this._fsCopy('README.md', 'README.md');
         }
     },
@@ -77,7 +78,7 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.npmInstall(['grunt', 'grunt-contrib-watch', 'grunt-react-templates', 'grunt-eslint'], {saveDev: true});
+        this.npmInstall(['grunt', 'grunt-contrib-clean', 'grunt-contrib-watch', 'grunt-react-templates', 'grunt-eslint'], {saveDev: true});
         this.installDependencies({
             skipInstall: this.options['skip-install']
         });
