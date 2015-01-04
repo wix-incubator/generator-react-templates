@@ -1,4 +1,4 @@
-# generator-react-templates [![Build Status](https://secure.travis-ci.org/someuser/generator-react-templates.png?branch=master)](https://travis-ci.org/someuser/generator-react-templates)
+# generator-react-templates
 
 > [Yeoman](http://yeoman.io) generator
 
