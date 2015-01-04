@@ -2,6 +2,16 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var fs = require('fs');
+
+function readJSON(file) {
+    var text = fs.readFileSync(file);
+    return JSON.parse(text);
+}
+
+function writeJSON(file, json) {
+    fs.writeFileSync(file, JSON.stringify(json, undefined, 2));
+}
 
 module.exports = yeoman.generators.Base.extend({
     initializing: function () {
@@ -59,12 +69,10 @@ module.exports = yeoman.generators.Base.extend({
             this._fsCopy('jshintrc', '.jshintrc');
             this._fsCopy('_package.json', 'package.json');
             if (this.modules === 'none') {
-                var fs = require('fs');
-                var eslintText = fs.readFileSync(this.templatePath('eslintrc'));
-                var eslint = JSON.parse(eslintText);
+                var eslint = readJSON(this.templatePath('eslintrc'));
                 eslint.globals.React = true;
                 eslint.globals._ = true;
-                fs.writeFileSync(this.destinationPath('.eslintrc'), JSON.stringify(eslint, undefined, 2));
+                writeJSON(this.destinationPath('.eslintrc'), eslint);
             } else {
                 this._fsCopy('eslintrc', '.eslintrc');
             }
