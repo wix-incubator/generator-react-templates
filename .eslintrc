@@ -136,20 +136,5 @@
         "amd": true
     },
     "globals": {
-        "requirejs": true,
-        "xdescribe": false,
-        "describe": false,
-        "it": false,
-        "xit": false,
-        "beforeEach": false,
-        "afterEach": false,
-        "jasmine": false,
-        "expect": false,
-        "waitsFor": false,
-        "waits": false,
-        "runs": false,
-        "any": false,
-        "spyOn": false,
-        "createSpy": false
     }
 }

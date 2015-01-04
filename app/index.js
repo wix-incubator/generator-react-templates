@@ -40,35 +40,43 @@ module.exports = yeoman.generators.Base.extend({
 
     writing: {
         app: function () {
-            this.fs.copy(
-                this.templatePath('_package.json'),
-                this.destinationPath('package.json')
-            );
-            this.fs.copy(
-                this.templatePath('_bower.json'),
-                this.destinationPath('bower.json')
-            );
-
+            this._fsCopy('_package.json', 'package.json');
+            this._fsCopy('_bower.json', 'bower.json');
             this._fsCopy(this.modules + '/src/hello.js', 'src/hello.js');
             this._fsCopy(this.modules + '/src/hello.rt', 'src/hello.rt');
             this._fsCopy(this.modules + '/src/index.html', 'src/index.html');
             if (this.modules === 'amd' || this.modules === 'commonjs') {
                 this._fsCopy(this.modules + '/src/main.js', 'src/main.js');
             }
+
+            //this.gruntfile.insertConfig("compass", "{ watch: { watch: true } }");
+            //this.gruntfile.registerTask('build', 'compass');
+            //this.gruntfile.registerTask('build', ['compass', 'uglify']);
         },
 
         projectfiles: function () {
-            this.fs.copy(
-                this.templatePath('editorconfig'),
-                this.destinationPath('.editorconfig')
-            );
-            this.fs.copy(
-                this.templatePath('jshintrc'),
-                this.destinationPath('.jshintrc')
-            );
-            this._fsCopy('eslintrc', '.eslintrc');
+            this._fsCopy('editorconfig', '.editorconfig');
+            this._fsCopy('jshintrc', '.jshintrc');
+            this._fsCopy('_package.json', 'package.json');
+            if (this.modules === 'none') {
+                var fs = require('fs');
+                var eslintText = fs.readFileSync(this.templatePath('eslintrc'));
+                var eslint = JSON.parse(eslintText);
+                eslint.globals.React = true;
+                eslint.globals._ = true;
+                fs.writeFileSync(this.destinationPath('.eslintrc'), JSON.stringify(eslint, undefined, 2));
+            } else {
+                this._fsCopy('eslintrc', '.eslintrc');
+            }
+
             this._fsCopy('gitignore', '.gitignore');
-            this._fsCopy('Gruntfile.js', 'Gruntfile.js');
+
+            this.fs.copyTpl(
+                this.templatePath('Gruntfile.js'),
+                this.destinationPath('Gruntfile.js'),
+                {modules: this.modules}
+            );
+
             this._fsCopy('README.md', 'README.md');
         }
     },
@@ -78,9 +86,9 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.npmInstall(['grunt', 'grunt-contrib-clean', 'grunt-contrib-watch', 'grunt-react-templates', 'grunt-eslint'], {saveDev: true});
-        this.installDependencies({
-            skipInstall: this.options['skip-install']
-        });
+        //this.npmInstall(['grunt', 'grunt-contrib-clean', 'grunt-contrib-watch', 'grunt-react-templates', 'grunt-eslint'], {saveDev: true});
+        //this.installDependencies({
+        //    skipInstall: this.options['skip-install']
+        //});
     }
 });

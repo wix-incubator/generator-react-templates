@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             }
         },
         reactTemplates: {
-            modules: 'amd',
+            modules: '<%= modules %>',
             format: 'stylish',
             src: ['src/**/*.rt']
         }
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-eslint');
 
     grunt.registerTask('rt', ['react-templates']);
-    grunt.registerTask('default', ['eslint', 'rt']);
+    grunt.registerTask('default', ['rt', 'eslint']);
     grunt.registerTask('test', []);
 
     grunt.registerTask('all', ['default', 'test']);
