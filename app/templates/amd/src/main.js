@@ -17,6 +17,7 @@ requirejs.config({
 
 requirejs(['react', './hello'], function (React, hello) {
     'use strict';
-    React.render(hello(), document.getElementById('container'));
+    var elem = React.createElement(hello);
+    React.render(elem, document.getElementById('container'));
 });
 
