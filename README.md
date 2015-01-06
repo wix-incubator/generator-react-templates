@@ -8,6 +8,20 @@
 
 ## Getting Started
 
+### What do you get?
+This generator creates a [react-templates](https://github.com/wix/react-templates) project with Grunt file, eslint and watch.
+After generating the project you can run
+```bash
+$ grunt rt
+```
+to compile the react-templates to javascript manualy, or run
+```bash
+$ grunt watch
+```
+To automatically genrate it when an rt file changes.
+If you are using IntelliJ or WebStorm you can also try the [react-templates plugin](http://plugins.jetbrains.com/plugin/7648).
+
+
 ### What is Yeoman?
 
 Trick question. It's not a thing. It's this guy:
