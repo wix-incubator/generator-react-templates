@@ -66,7 +66,7 @@ MIT
 
 [npm-image]: https://img.shields.io/npm/v/generator-react-templates.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/generator-react-templates
-[travis-image]: https://img.shields.io/travis/wix/generator-react-templates/gh-pages.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/wix/generator-react-templates/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/wix/generator-react-templates
 [coveralls-image]: https://img.shields.io/coveralls/wix/generator-react-templates/master.svg?style=flat-square
 [coveralls-url]: https://coveralls.io/r/wix/generator-react-templates?branch=master
