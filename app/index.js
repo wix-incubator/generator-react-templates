@@ -94,9 +94,11 @@ module.exports = yeoman.generators.Base.extend({
     },
 
     install: function () {
-        this.npmInstall(['grunt', 'grunt-contrib-clean', 'grunt-contrib-watch', 'grunt-react-templates', 'grunt-eslint'], {saveDev: true});
-        this.installDependencies({
-            skipInstall: this.options['skip-install']
-        });
+        if (!this.options['skip-install']) {
+            this.npmInstall(['grunt', 'grunt-contrib-clean', 'grunt-contrib-watch', 'grunt-react-templates', 'grunt-eslint'], {saveDev: true});
+            this.installDependencies({
+                skipInstall: this.options['skip-install']
+            });
+        }
     }
 });
