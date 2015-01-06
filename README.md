@@ -14,11 +14,11 @@ After generating the project you can run
 ```bash
 $ grunt rt
 ```
-to compile the react-templates to javascript manualy, or run
+to compile the react-templates to javascript manually, or run
 ```bash
 $ grunt watch
 ```
-To automatically genrate it when an rt file changes.
+To automatically generate it when an rt file changes.
 If you are using IntelliJ or WebStorm you can also try the [react-templates plugin](http://plugins.jetbrains.com/plugin/7648).
 
 
