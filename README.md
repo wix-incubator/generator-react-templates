@@ -1,3 +1,6 @@
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+
 # generator-react-templates
 
 > [Yeoman](http://yeoman.io) generator
@@ -45,3 +48,13 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 ## License
 
 MIT
+
+
+[npm-image]: https://img.shields.io/npm/v/generator-react-templates.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/generator-react-templates
+[travis-image]: https://img.shields.io/travis/wix/generator-react-templates/gh-pages.svg?style=flat-square
+[travis-url]: https://travis-ci.org/wix/generator-react-templates
+[coveralls-image]: https://img.shields.io/coveralls/wix/generator-react-templates/master.svg?style=flat-square
+[coveralls-url]: https://coveralls.io/r/wix/generator-react-templates?branch=master
+[downloads-image]: http://img.shields.io/npm/dm/generator-react-templates.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/generator-react-templates
