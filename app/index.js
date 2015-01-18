@@ -68,14 +68,17 @@ module.exports = yeoman.generators.Base.extend({
             this._fsCopy('editorconfig', '.editorconfig');
             this._fsCopy('jshintrc', '.jshintrc');
             this._fsCopy('_package.json', 'package.json');
+            var eslint = readJSON(this.templatePath('eslintrc'));
             if (this.modules === 'none') {
-                var eslint = readJSON(this.templatePath('eslintrc'));
                 eslint.globals.React = true;
                 eslint.globals._ = true;
-                writeJSON(this.destinationPath('.eslintrc'), eslint);
+            } else if (this.modules === 'amd') {
+                eslint.globals.requirejs = true;
             } else {
-                this._fsCopy('eslintrc', '.eslintrc');
+                eslint.rules['global-strict'] = [2, 'always'];
+                eslint.env.node = true;
             }
+            writeJSON(this.destinationPath('.eslintrc'), eslint);
 
             this._fsCopy('gitignore', '.gitignore');
 
@@ -95,6 +98,9 @@ module.exports = yeoman.generators.Base.extend({
 
     install: function () {
         if (!this.options['skip-install']) {
+            if (this.modules === 'commonjs') {
+                this.npmInstall(['lodash', 'react'], {saveDev: false});
+            }
             this.npmInstall(['grunt', 'grunt-contrib-clean', 'grunt-contrib-watch', 'grunt-react-templates', 'grunt-eslint'], {saveDev: true});
             this.installDependencies({
                 skipInstall: this.options['skip-install']
