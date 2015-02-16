@@ -20,12 +20,13 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "react-templates"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.18.0",
     "chalk": "^0.5.0",
-    "yosay": "^0.3.0"
+    "yeoman-generator": "^0.18.9",
+    "yosay": "^1.0.2"
   },
   "devDependencies": {
     "mocha": "*"
